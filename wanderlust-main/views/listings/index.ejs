@@ -1,0 +1,25 @@
+<% layout("/layouts/boilerplate") %>  
+
+<div class="container-fluid"> <!-- Use container-fluid to make content full width -->
+
+  <h3 class="text-center font-weight-bold">All Listings</h3>
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1"> <!-- Adjust number of columns based on screen size -->
+    <% for(let listing of allListings) { %>
+      <div class="col mb-4"> <!-- Use Bootstrap's margin utility class to add space between columns -->
+        <div class="card" style="width: 100%;"> <!-- Set card width to 100% -->
+          <img src="<%= listing.image %>" class="card-img-top" alt="img" style="height: 20rem;">
+          <div class="card-body">
+            <b><h5 class="card-title"><%= listing.title %></h5></b>
+            <p class="card-descrip">
+              <%= listing.description %><br>
+              &#8377;<%= listing.price %><br>
+              <i class="material-icons">&#xe55f;</i> <%= listing.country %> 
+              <i class="material-icons">&#xe55c;</i> <%= listing.location %>
+            </p>
+            <a href="/listings/<%= listing._id %>" class="btn btn-primary">Show More</a>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</div>

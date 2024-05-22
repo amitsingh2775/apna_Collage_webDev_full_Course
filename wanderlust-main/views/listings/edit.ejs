@@ -1,0 +1,53 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row">
+    <div class="col-8 offset-2">
+        <h3>Edit your Details</h3>
+        <br>
+     <form method="POST" action="/listings/<%= llisting._id %>?_method=PUT" novalidate class="needs-validation">
+        <div class="mb-3">
+            <label for="title" class="form-label">Enter Your Title</label>
+            <input name="listing[title]" value="<%= llisting.title %>" required class="form-control">
+            <div class="invalid-feedback">required to fill</div>
+        </div>
+       
+       <div class="mb-3">
+        <label for="description" class="form-label">Enter Your description</label>
+        <textarea name="listing[description]" required class="form-control"><%= llisting.description %></textarea>
+        <div class="invalid-feedback">required to fill</div>
+       </div>
+        
+       <div class="mb-3"> <label for="image" class="form-label">Enter Your ImgUrl</label>
+        <input name="listing[image]" value="<%= llisting.image %>" required class="form-control">
+        <div class="invalid-feedback">required to fill</div>
+        </div>
+         <div class="row">
+            <div class="mb-3 col-4"> <label for="price" class="form-label">Enter Your price</label>
+                <input name="listing[price]" value="<%= llisting.price %>" required class="form-control">
+                <div class="invalid-feedback">required to fill</div>
+            </div>
+                
+               <div class="mb-3 col-4"> <label for="country" class="form-label">Enter Your country</label>
+                <input name="listing[country]" value="<%= llisting.country %>"   required class="form-control">
+                <div class="invalid-feedback">required to fill</div>
+            </div>
+            <div class="mb-3 col-4"> <label for="location" class="form-label">Enter Your location</label>
+                <input name="listing[location]" value="<%= llisting.location %>" required class="form-control">
+                <div class="invalid-feedback">required to fill</div>
+            </div>
+
+         </div>
+      
+        
+      
+        <br>
+        <button class="btn btn-primary">Save.. </button>
+        <br>
+        <br>
+  
+    </form>
+</div>
+</div>
+
+    
+    
+    

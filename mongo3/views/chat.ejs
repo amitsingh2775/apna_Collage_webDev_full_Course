@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mini chatapp</title>
+    <!-- Include Tailwind CSS via CDN or use your local setup -->
+    <!-- For CDN, it should be included as a link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="">
+   <form method="GET" action="/new/chat" class="border-gray-500 p-4 border-gray-500">
+    <button class="border-gray-500 p-4 border-gray-500 bg-green-500">New Chat</button>
+</form>
+
+ <div class="flex flex-col items-center justify-center mt-2">
+    <% for (let chat of chats) { %>
+        <div class="chat chat-start border border-gray-500 p-4 ">
+            <div class="chat-header bg-gray-200  w-40 ">@<%= chat.from %>
+                <time class="text-xs opacity-50">2 hours ago</time>
+            </div>
+            <div class="chat-bubble  w-40 h-60"><%= chat.msg %>
+                <form method="get" action="/chats/<%=chat._id%>/edit">
+                    <button class="border-gray-500 p-4 border-gray-500 bg-green-500 ">Edit</button>
+                </form>
+            </br>
+                <form method="post" action="/chats/<%=chat._id%>/?_method=DELETE">
+                    <button class="border-gray-500 p-4 border-gray-500 bg-red-500 ">Delete</button>
+                </form>
+            
+            </div>
+            <div class="chat-bubble"> to:@<%= chat.to %></div>
+            <div class="chat-footer opacity-50 mb-2">
+                Seen
+            </div>
+            <div class="chat-bubble"> time:<%= chat.created_at.toString().split(" ")[4] %></div>
+            <div class="chat-bubble"> time:<%= chat.created_at.toString().split(" ").slice(0,4).join("-") %></div>
+            
+        </div>
+    </br>
+    <% } %>
+
+</div>
+
+</body>
+</html>

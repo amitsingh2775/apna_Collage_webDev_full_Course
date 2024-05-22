@@ -1,0 +1,15 @@
+.product {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column; /* Arrange content in a column */
+  border: 2px solid black;
+  border-radius: 10px;
+  /* //background-color: aquamarine; */
+  width: 200px; /* Example width */
+  height: 100px; /* Example height */
+  padding-left: 400px;
+  margin-left: 400px;
+  padding: 2rem;
+  flex-wrap: wrap;
+}

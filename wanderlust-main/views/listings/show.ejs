@@ -1,0 +1,41 @@
+<% layout("/layouts/boilerplate") %>
+  <div class="row justify-content-center"> <!-- Center align content -->
+    <div class="col-8"> <!-- Adjust column width as needed -->
+      <h5 class="card-title"><%= llisting.title %></h5>
+      <div class="card" style="width: 18rem;">
+        <img src="<%=llisting.image%>" class="card-img-top" alt="listimage">
+        <div class="card-body"> <!-- Center align text -->
+          <p> @<%=llisting.owner.username %></p>
+          <p class="card-descrip">
+            <%= llisting.description %><br>
+            &#8377;<%= llisting.price %><br>
+            <i class="material-icons">&#xe55f;</i> <%= llisting.country %> 
+            <i class="material-icons">&#xe55c;</i> <%= llisting.location %>
+          </p>
+          <div class="btns">
+            <a href="/listings/<%= llisting._id %>/edit" class="btn btn-primary col-4 offset-2">Edit</a>
+            <form method="POST" action="/listings/<%= llisting._id %>?_method=DELETE">
+              <button class="btn btn-dark offset-2">Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+   <hr>
+      <div class="col-8 mb-3 ">
+        <h4>Reviews</h4>
+        <form action="/listings/<%= llisting.id %>/reviews" method="post">
+          <div class="mb-3 mt-3">
+            <label for="rating" class="form-label">Rating</label>
+            <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range">
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="comment" class="form-label">Comments</label>
+            <textarea name="review[comment]" id="comment" cols="30" rows="5" class="form-control"></textarea>
+          </div>
+          <button class="btn btn-outline-dark" type="submit">Submit</button>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+
